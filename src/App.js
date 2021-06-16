@@ -13,7 +13,7 @@ import EditProfile from './components/EditProfile'
 function App() {
   return (
     <Router>
-      <div>
+      <div className="mainDiv">
         <nav>
           <ul className="overlay">
             <li>
