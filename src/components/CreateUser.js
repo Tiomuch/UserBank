@@ -6,15 +6,15 @@ function CreateUser() {
     <div className="mainFormDiv">
       <h1 className="step">Step 1</h1>
       <Formik
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ userName: '', password: '', avatar: '', repPass: '' }}
         validate={values => {
           const errors = {}
-          if (!values.email) {
-            errors.email = 'Required'
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = 'Invalid email address'
+          if (!values.userName) {
+            errors.userName = 'Required'
+          } else if (!values.password) {
+            errors.password = 'Required'
+          } else if (!values.repPass) {
+            errors.repPass = 'Required'
           }
           return errors
         }}
@@ -37,31 +37,48 @@ function CreateUser() {
           }) => (
           <form onSubmit={handleSubmit} className="form">
             <input
-              type="email"
-              name="email"
+              type="avatar"
+              name="avatar"
               onChange={handleChange}
               onBlur={handleBlur}
-              value={values.email}
+              value={values.avatar}
               className="field"
             />
-            {errors.email && touched.email && errors.email}
+            {errors.avatar && touched.avatar && errors.avatar}
+            <input
+              type="userName"
+              name="userName"
+              placeholder="Name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.userName}
+              className="field"
+            />
+            {errors.userName && touched.userName && errors.userName}
             <input
               type="password"
               name="password"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.password}
+              placeholder="Password"
               className="field"
             />
             {errors.password && touched.password && errors.password}
-            <div className="buttons">
-              <button type="submit" disabled={isSubmitting} className="back">
-                Back
-              </button>
-              <button type="submit" disabled={isSubmitting} className="next">
-                Next Step
-              </button>
-            </div>
+            <input
+              type="repPass"
+              name="repPass"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.repPass}
+              placeholder="Repeat Password"
+              className="field"
+            />
+            {errors.repPass && touched.repPass && errors.repPass}
+            {/*<div className="buttons">*/}
+            <button type="submit" disabled={isSubmitting} className="firstSubmit">
+              Next Step
+            </button>
           </form>
         )}
       </Formik>

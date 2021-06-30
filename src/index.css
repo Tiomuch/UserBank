@@ -55,6 +55,8 @@ code {
 .field {
   margin-bottom: 10px;
   display: inline-block;
+  border: 1px solid #CDD9ED;
+  border-radius: 10px;
 }
 
 .back {
@@ -71,4 +73,17 @@ code {
 .buttons {
   display: flex;
   flex-direction: row;
+}
+
+.firstSubmit {
+  background-color: white;
+  border-radius: 10%;
+  border-color: black;
+  border-width: 1px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.firstSubmit:hover {
+  opacity: 1;
 }
