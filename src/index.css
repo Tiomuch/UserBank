@@ -87,3 +87,12 @@ code {
 .firstSubmit:hover {
   opacity: 1;
 }
+
+.eye {
+  border-style: double;
+  border-width: 5px;
+  border-radius: 50%;
+  border-color: black;
+  /*background-color: white;*/
+  cursor: pointer;
+}
