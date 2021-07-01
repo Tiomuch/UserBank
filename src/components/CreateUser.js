@@ -36,10 +36,14 @@ function CreateUser() {
           const errors = {}
           if (!values.userName) {
             errors.userName = 'Required'
-          } else if (!values.password) {
+          }
+          if (!values.password) {
             errors.password = 'Required'
-          } else if (!values.repPass) {
+          }
+          if (!values.repPass) {
             errors.repPass = 'Required'
+          } else if (values.password !== values.repPass) {
+            errors.repPass = 'Should be like password'
           }
           return errors
         }}
@@ -91,8 +95,8 @@ function CreateUser() {
                 className="field"
               />
               <button type="button" className="eye" name="pass" style={{backgroundColor: passStyle}} onClick={showPass}/>
-              {errors.password && touched.password && errors.password}
             </div>
+            {errors.password && touched.password && errors.password}
             <div>
               <input
                 type={repPassType}
@@ -104,8 +108,8 @@ function CreateUser() {
                 className="field"
               />
               <button type="button" className="eye" name="repPass" style={{backgroundColor: repPassStyle}} onClick={showPass}/>
-              {errors.repPass && touched.repPass && errors.repPass}
             </div>
+            {errors.repPass && touched.repPass && errors.repPass}
             <button type="submit" disabled={isSubmitting} className="firstSubmit">
               Next Step
             </button>
